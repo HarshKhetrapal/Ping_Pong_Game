@@ -1,0 +1,12 @@
+package PongGame;
+
+import java.awt.Graphics;
+
+public interface IPaddle {
+	public void draw(Graphics graphics);
+	public void move();
+	public int getY();
+	public void setUpAccel(boolean input);
+	public void setDownAcel(boolean input);
+
+}

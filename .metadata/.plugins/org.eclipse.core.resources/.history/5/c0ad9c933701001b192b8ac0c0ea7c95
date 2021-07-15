@@ -1,0 +1,57 @@
+package PongGame;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+public class HighScoreHelper {
+
+	private static Integer highScore;
+	private static String storingPath = "C:\\nexus\\GameProject\\highScore.ser";
+	
+	public static void initHighScore()
+	{
+		// get the high score persisted value, when application starts.
+		try (FileInputStream input = new FileInputStream(HighScoreHelper.storingPath);
+			ObjectInputStream objectInput = new ObjectInputStream(input);) 
+		{
+			
+			HighScoreHelper.highScore = (Integer) objectInput.readObject();
+		} 
+		catch (ClassNotFoundException | IOException e1) {
+			HighScoreHelper.highScore = Integer.valueOf(0);
+		}
+	}
+	
+	public static void writeNewHighScore()
+	{
+		try (FileOutputStream fout = new FileOutputStream(HighScoreHelper.storingPath);
+			ObjectOutputStream oos = new ObjectOutputStream(fout);)
+		{
+			oos.writeObject(HighScoreHelper.highScore);
+		} 
+		catch (IOException e1) {
+			
+			e1.printStackTrace();
+		}
+	}
+	
+	public static boolean isHighScoreBroke(int leftPaddleScore, int rightPaddleScore) 
+	{
+		if(leftPaddleScore > rightPaddleScore && leftPaddleScore > HighScoreHelper.highScore)
+		{
+			HighScoreHelper.highScore = leftPaddleScore;
+			HighScoreHelper.writeNewHighScore();
+			return true;
+		}
+		else if(leftPaddleScore < rightPaddleScore && rightPaddleScore > HighScoreHelper.highScore)
+		{
+			HighScoreHelper.highScore = rightPaddleScore;
+			HighScoreHelper.writeNewHighScore();
+			return true;
+		}
+		return false;
+	}
+}

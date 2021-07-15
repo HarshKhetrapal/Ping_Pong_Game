@@ -1,0 +1,143 @@
+package PongGame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
+public class Ball {
+	double xVel;
+	double yVel;
+	double x;
+	double y;
+	int paddleOneHit;
+	int paddleTwoHit;
+	LinkedHashMap<Integer, Integer> paddleLeftScore;
+	LinkedHashMap<Integer, Integer> paddleRighttScore;
+	boolean ballHitByLeftPaddle = true;
+	boolean ballHitByRightPaddle = true;
+	Level level = new Level();
+	
+	public Ball() {
+		// initial position for ball on the applet screen.
+		x = 350;
+		y = 250;
+		// initial movement of ball on the applet.
+		xVel = -2 * getRabdomDirection();
+		yVel = 1 * getRabdomDirection();
+		paddleOneHit = 0;
+		paddleTwoHit = 0;
+		paddleLeftScore = new LinkedHashMap<>();
+		paddleRighttScore = new LinkedHashMap<>();
+	}
+	
+	/**
+	 * gives the random direction to the ball to move.
+	 * @return
+	 */
+	public int getRabdomDirection()
+	{
+		// * 2 gives random value either 0 or 1
+		int rand = (int)(Math.random() *2);
+		if(rand == 1)
+		{
+			return 1;
+		}
+		else
+		{
+			return -1;
+		}
+		
+	}
+	
+	/**
+	 * draws the ball in the application.
+	 * @param graphics
+	 */
+	public void draw(Graphics graphics)
+	{
+		// drawing / creating a ball on applet.
+		graphics.setColor(Color.BLACK);
+		// subtracted 10 from x and y because x and y represents the top left corner but we want x and y 
+		// to represent at the center of the circle so subtracting 10 because 20 is the diameter of the circle.
+		graphics.fillOval((int)x-10, (int)y-10, 20, 20);
+	}
+	
+	/**
+	 * Checks if the ball hit any paddle or not.
+	 * Checks the level and set the score accordingly.
+	 * @param p1
+	 * @param p2
+	 */
+	public void checkBallHittingPaddle(IPaddle p1, IPaddle p2)
+	{
+		// check if ball hit right paddle
+		if(x <= 40)
+		{
+			//check if ball hitting the circumference of the paddle
+			if(y >= p1.getY() && y <= p1.getY()+80)
+			{
+				xVel = -xVel;
+				if(this.ballHitByLeftPaddle)
+				{
+					paddleOneHit++;
+					level.getLevel(this);
+					level.setScore(this, true, false);
+					//paddleLeftScore.put(paddleOneHit, 1);
+					this.ballHitByLeftPaddle = false;
+					this.ballHitByRightPaddle = true;
+				}
+				
+			}
+		}
+		// check if ball hit left paddle
+		else if(x >= 650)
+		{
+			//check if ball hitting the circumference of the paddle
+			if(y >= p2.getY() && y <= p2.getY()+80)
+			{
+				xVel = -xVel;
+				if(this.ballHitByRightPaddle)
+				{
+					paddleTwoHit++;
+					level.getLevel(this);
+					level.setScore(this, false, true);
+					//paddleRighttScore.put(paddleTwoHit, 1);
+					this.ballHitByRightPaddle = false;
+					this.ballHitByLeftPaddle = true;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * move the ball.
+	 */
+	public void move()
+	{
+		x += xVel;
+		y += yVel;
+		// Not allow ball to go off the screen(applet).
+		// comparing with 10 and 490 because radius of circle is 10.
+		if(y < 10)
+		{
+			yVel = -yVel;
+		}
+		if(y > 490)
+		{
+			yVel = -yVel;
+		}
+	}
+	
+	public int getX()
+	{
+		// returns int value of x position(coordinate) of ball
+		return (int)x;
+	}
+
+	public int getY()
+	{
+		// returns int value of y position(coordinate) of ball
+		return (int)y;
+	}
+}

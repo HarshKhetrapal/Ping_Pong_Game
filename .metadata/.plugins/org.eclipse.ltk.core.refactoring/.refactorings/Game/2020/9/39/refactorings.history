@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;RightPaddleScore&apos; in &apos;PongGame.HighScoreHelper.isHighScoreBroke(...)&apos; to &apos;rightPaddleScore&apos;&#x0D;&#x0A;- Original project: &apos;Game&apos;&#x0D;&#x0A;- Original element: &apos;PongGame.HighScoreHelper.isHighScoreBroke(int, int).RightPaddleScore&apos;&#x0D;&#x0A;- Renamed element: &apos;RightPaddleScore&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;RightPaddleScore&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;PongGame{HighScoreHelper.java[HighScoreHelper~isHighScoreBroke~I~I@RightPaddleScore!1156!1175!1160!1175!I!0!true" name="rightPaddleScore" references="true" stamp="1601004880470" version="1.0"/>
+</session>

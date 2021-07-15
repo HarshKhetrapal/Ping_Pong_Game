@@ -1,0 +1,20 @@
+
+csquid:S1066R"/Merge this if statement with the enclosing one.(ôôğ8Ï“º˜Ê.HĞ
+RMAJORZ
+CODE_SMELL
+zsquid:S2184"HCast one of the operands of this multiplication operation to a "double".(ğü¢ûÿÿÿÿ8«Ú»”Ê.H¬
+RMINORZBUG
+bsquid:S2140%")Use "java.util.Random.nextInt()" instead.(Î½ùôûÿÿÿÿ8ä¾Ø¼·.Hê	RMINORZ
+CODE_SMELL
+„squid:CommentedOutCodeLineZ"<This block of commented-out lines of code should be removed.(‚ªŞˆÿÿÿÿÿ8¯®è˜Ê.HÛ
+RMAJORZ
+CODE_SMELL
+tsquid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8Á÷ÖÏÉ.Hë	RMINORZ
+CODE_SMELL
+squid:CommentedOutCodeLineG"<This block of commented-out lines of code should be removed.(òÎ£”8¯®è˜Ê.HÚ
+RMAJORZ
+CODE_SMELL
+usquid:S2184"HCast one of the operands of this multiplication operation to a "double".(µìß‘8«Ú»”Ê.H«
+RMINORZBUG
+squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‚Ø±ÎùÿÿÿÿHé	RMINORZ
+CODE_SMELL

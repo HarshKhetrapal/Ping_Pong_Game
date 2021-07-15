@@ -1,0 +1,108 @@
+package PongGame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class PaddleTwo implements IPaddle
+{
+	final double GRAVITY = 0.94;
+	double y;
+	double yVel;
+	boolean upAccel;
+	boolean downAccel;
+	int player;
+	int x;
+
+	public PaddleOne(int player)
+	{
+		upAccel = false;
+		downAccel = false;
+		y = 210; 
+		yVel = 0;
+		if(player ==1)
+		{
+			// if player 1 then paddle will be on the left side.
+			x = 20;
+		}
+		else
+		{
+			// else for player 2 then paddle will be on the right side.
+			x = 660;
+		}
+	}
+	@Override
+	public void draw(Graphics graphics) 
+	{
+		// creating paddle with white color with size of 20*80
+		graphics.setColor(Color.white);
+		graphics.fillRect(x, (int)y, 20, 80);
+		
+		
+	}
+
+	@Override
+	public void move() {
+		if(upAccel)
+		{
+			// if up button is pressed, paddle should move upwards with y velocity.
+			// 0,0 is at the top left corner so to move paddle upward yvel - 2;
+			yVel -= 2;
+			
+		}
+		else if(downAccel)
+		{
+			// if down button is pressed, paddle should move downwards with y velocity.
+			// 0,0 is at the top left corner so to move paddle upward yvel + 2;
+			yVel += 2;
+			
+		}
+		else if(!upAccel && !downAccel)
+		{
+			// if button(up or down) is released so need to slow down.
+			// slowing down using the gravity.
+			yVel *= GRAVITY;
+		}
+		
+		// update y to move paddle with y velocity as set above based on the condition.
+		if(yVel >= 5)
+		{
+			// to not move paddle too fast in downward direction.
+			yVel = 5;
+		}
+		else if(yVel <= -5)
+		{
+			// to not move paddle too fast in upward direction.
+			yVel = -5;
+		}
+		y += yVel;
+		
+		if(y < 0)
+		{
+			// to not allow paddle to move out of screen while moving towards upward direction.
+			y = 0;
+		}
+		else if(y > 420)
+		{
+			// to not allow paddle to move out of screen while moving towards downwards direction.
+			y = 420; 
+		}
+	}
+
+	@Override
+	public int getY() {
+		return (int)y;
+	}
+	
+	public void setUpAccel(boolean input)
+	{
+		// paddle is moving towards upwards.
+		upAccel = input;
+	}
+	
+	public void setDownAcel(boolean input)
+	{
+		// paddle is moving towards down.
+		downAccel = input;
+	}
+
+}

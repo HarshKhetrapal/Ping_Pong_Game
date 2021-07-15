@@ -1,0 +1,16 @@
+
+dsquid:S25892"7Remove this expression which always evaluates to "true"(™ûúÆH½
+RMAJORZ
+CODE_SMELL
+dsquid:S25892"7Remove this expression which always evaluates to "true"(™ûúÆH»
+RMAJORZ
+CODE_SMELL
+squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‚Ø±ÎùÿÿÿÿHº
+RMINORZ
+CODE_SMELL
+xsquid:CommentedOutCodeLine'"<This block of commented-out lines of code should be removed.(ÍÊÜ‹H¹
+RMAJORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine."<This block of commented-out lines of code should be removed.(­•“×üÿÿÿÿH¼
+RMAJORZ
+CODE_SMELL

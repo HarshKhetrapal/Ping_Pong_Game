@@ -1,0 +1,20 @@
+
+~squid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(Â¨ä_8¾¥¹”Ê.H©
+RMAJORZ
+CODE_SMELL
+usquid:S2184"HCast one of the operands of this multiplication operation to a "double".(ÝÐœã8¨›ù—Ê.HÄ
+RMINORZBUG
+squid:S00116"SRename this field "LevelOne" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…²Ëßýÿÿÿÿ8³â¡×É.Hƒ	RMINORZ
+CODE_SMELL
+Šsquid:S00116"URename this field "LevelThree" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÊÜü8³â¡×É.H‰	RMINORZ
+CODE_SMELL
+squid:S00116"SRename this field "LevelTwo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õœõþÿÿÿÿ8³â¡×É.H†	RMINORZ
+CODE_SMELL
+squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‚Ø±ÎùÿÿÿÿH„	RMINORZ
+CODE_SMELL
+zsquid:S2184 "HCast one of the operands of this multiplication operation to a "double".(éú»ýÿÿÿÿ8¨›ù—Ê.HÅ
+RMINORZBUG
+…squid:S1871("LThis branch's code block is the same as the block for the branch on line 35.(ÒÌâ–øÿÿÿÿ8§ªð”Ê.H·
+RMAJORZ
+CODE_SMELL

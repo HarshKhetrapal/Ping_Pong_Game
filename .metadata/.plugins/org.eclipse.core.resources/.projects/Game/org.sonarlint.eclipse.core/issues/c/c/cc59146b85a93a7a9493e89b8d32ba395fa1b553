@@ -1,0 +1,32 @@
+
+fsquid:S1948"*Make "pcPaddle" transient or serializable.(áÆãÈûÿÿÿÿ8¾å»·.HœRCRITICALZ
+CODE_SMELL
+‹squid:S00116"QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü×íÈÿÿÿÿÿ8Ä•ª³.HRMINORZ
+CODE_SMELL
+\squid:S1948"&Make "ball" transient or serializable.(¨ã×%8±°ÿ¹·.HRCRITICALZ
+CODE_SMELL
+jsquid:S1948"3Make "secondaryGraphics" transient or serializable.(ŒÂÁ†8¸Ï¬½·.HŸRCRITICALZ
+CODE_SMELL
+esquid:S1948")Make "paddle1" transient or serializable.(º³¡ùıÿÿÿÿ8×µ¸·.H RCRITICALZ
+CODE_SMELL
+^squid:S1948"'Make "image" transient or serializable.(‘ìÜ8¸Ï¬½·.H¡RCRITICALZ
+CODE_SMELL
+Šsquid:S00116"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Æèºÿÿÿÿÿ8Ä•ª³.H¢RMINORZ
+CODE_SMELL
+squid:S1192 "IDefine a constant instead of duplicating this literal " points." 3 times.(—‰‡¤8¦úÉ˜Ì.H£RCRITICALZ
+CODE_SMELL
+_squid:S1948"(Make "thread" transient or serializable.(óÍİŠ8°¥‘³.H¤RCRITICALZ
+CODE_SMELL
+squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‚Ø±ÎùÿÿÿÿH¥RMINORZ
+CODE_SMELL
+Qsquid:S2189Á""Add an end condition to this loop.(¤èÄ78ôÌú³.H¦RBLOCKERZBUG
+csquid:S1948"'Make "level" transient or serializable.(ÁÖƒüÿÿÿÿ8¡›ı—Ê.H§RCRITICALZ
+CODE_SMELL
+tsquid:S2142İ"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8øÀÛ­Ç.H¨RMAJORZBUG
+Zsquid:S1170"!Make this final field static too.(ü×íÈÿÿÿÿÿ8Ä•ª³.H©RMINORZ
+CODE_SMELL
+`squid:S1948")Make "paddle2" transient or serializable.(Ø“Ä8øÀÛ­Ç.HªRCRITICALZ
+CODE_SMELL
+`squid:S1148ß"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ëîú³.H«RMINORZVULNERABILITY
+Zsquid:S1170"!Make this final field static too.(°Æèºÿÿÿÿÿ8Ä•ª³.H¬RMINORZ
+CODE_SMELL

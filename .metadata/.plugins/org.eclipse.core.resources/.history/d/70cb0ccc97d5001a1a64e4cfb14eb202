@@ -1,0 +1,175 @@
+package PongGame;
+
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class Pong extends Applet implements Runnable, KeyListener 
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7639630515030291975L;
+	final int WIDTH = 700;
+	final int HEIGHT = 500;
+	Thread thread;
+	PaddleOne paddle1;
+	PaddleTwo paddle2;
+	PCPaddle pcPaddle;
+	Ball ball;
+	boolean gameStartedWithPC;
+	boolean gameStartedWithTwoPlayer;
+	Graphics secondaryGraphics;
+	Image image;
+	@Override
+	public void init() 
+	{
+		this.resize(WIDTH, HEIGHT);
+		this.addKeyListener(this);
+		// initializing paddle one on the left side(1) 
+		paddle1 = new PaddleOne(1);
+		pcPaddle = new PCPaddle(2, ball);
+		paddle2 = new PaddleTwo(2);
+		// initializing ball.
+		ball = new Ball();
+		// initializing PC paddle on the right side.
+		pcPaddle = new PCPaddle(2, ball);
+		// initializing image will create everything in image using secondary graphics
+		image = createImage(WIDTH, HEIGHT);
+		// initializing secondary graphics will use image graphics to draw / reate things on image
+		secondaryGraphics = image.getGraphics();
+		gameStartedWithPC = false;
+		gameStartedWithTwoPlayer = false;
+		thread = new Thread(this);
+		thread.start();
+		
+	}
+	
+	@Override
+	public void paint(Graphics graphics)
+	{
+		secondaryGraphics.setColor(Color.black);
+		secondaryGraphics.fillRect(0, 0, WIDTH, HEIGHT);
+		if(ball.getX() < 10  || ball.getX() > 710)
+		{
+			// checking if ball collide on left or right side then game over.
+			secondaryGraphics.setColor(Color.red);
+			secondaryGraphics.drawString("Game Over", 350, 250);
+		}
+		else
+		{
+			// with appllet also create a paddle on the applet.
+			paddle1.draw(secondaryGraphics);
+			// with appllet also create a ball on the applet.
+			ball.draw(secondaryGraphics);
+			if(gameStartedWithPC)
+			{
+				// with appllet also create a paddle on the applet.
+				pcPaddle.draw(secondaryGraphics);
+			}
+			
+			else if(gameStartedWithTwoPlayer)
+			{
+				// with appllet also create a paddle on the applet.
+				paddle2.draw(secondaryGraphics);
+			}
+			
+		}
+		
+		if(!gameStartedWithPC)
+		{
+			secondaryGraphics.setColor(Color.white);
+			secondaryGraphics.drawString("Press 1 to play with Computer!", 300, 130);
+			secondaryGraphics.drawString("Press 2 for two player!", 310, 150);
+		}
+		// drawing image on primary graphics of applet
+		graphics.drawImage(image, 0, 0, this);	
+	}
+	
+	@Override
+	public void update(Graphics graphics)
+	{
+		paint(graphics);
+		
+	}
+
+	@Override
+	public void run() 
+	{
+		while	(true)
+		{
+			// start the game once the enter is hit.
+			if(gameStartedWithPC)
+			{
+				// move the paddle on the applet.
+				paddle1.move();
+				if(gameStartedWithPC)
+				{
+					// move the paddle on the applet.
+					pcPaddle.move();
+				}
+				
+				// move ball on the applet.
+				ball.move();
+				ball.checkBallHittingPaddle(paddle1, pcPaddle);
+			}
+			repaint();
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) 
+	{
+		if(e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			// once the up button is pressed set in paddle that it needs to move in upward direction.
+			paddle1.setUpAccel(true);
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			// once the up button is pressed set in paddle that it needs to move in downwards direction.
+			paddle1.setDownAcel(true);
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_1)
+		{
+			// Start the game when enter is pressed.
+			gameStartedWithPC = true;
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_2)
+		{
+			// Start the game when enter is pressed.
+			gameStartedWithTwoPlayer = true;
+		}
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) 
+	{
+		if(e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			// once the up button is released set in paddle that it does not need to move in upward direction.
+			paddle1.setUpAccel(false);
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			// once the up button is released set in paddle that it does not need to move in downwards direction.
+			paddle1.setDownAcel(false);
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

@@ -1,0 +1,37 @@
+package PongGame;
+
+import java.awt.Graphics;
+
+public class Paddle 
+{
+	private IPaddle paddle;
+	public Paddle(IPaddle paddle) {
+		this.paddle = paddle;
+	}
+	public void draw(Graphics graphics)
+	{
+		this.paddle.draw(graphics);
+	}
+	public void move()
+	{
+		this.paddle.move();
+	}
+	public int getY()
+	{
+		return this.paddle.getY();
+	}
+	
+	public void setUpAccel(boolean input)
+	{
+		this.paddle.setUpAccel(input);
+	}
+	
+	public void setDownAcel(boolean input)
+	{
+		this.paddle.setDownAcel(input);
+	}
+	public IPaddle getPaddle()
+	{
+		return this.paddle;
+	}
+}

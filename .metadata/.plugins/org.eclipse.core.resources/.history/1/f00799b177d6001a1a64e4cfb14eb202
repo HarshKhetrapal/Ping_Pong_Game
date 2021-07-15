@@ -1,0 +1,125 @@
+package PongGame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Ball {
+	double xVel;
+	double yVel;
+	double x;
+	double y;
+	int paddleOnePoints;
+	int paddleTwoPoints;
+	
+	public Ball() {
+		// initial position for ball on the applet screen.
+		x = 350;
+		y = 250;
+		// initial movement of ball on the applet.
+		xVel = -2 * getRabdomDirection();
+		yVel = 1 * getRabdomDirection();
+		paddleOnePoints = 0;
+		paddleTwoPoints = 0;
+	}
+	
+	public int getRabdomDirection()
+	{
+		// * 2 gives random value either 0 or 1
+		int rand = (int)(Math.random() *2);
+		if(rand == 1)
+		{
+			return 1;
+		}
+		else
+		{
+			return -1;
+		}
+		
+	}
+	public void draw(Graphics graphics)
+	{
+		// drawing / creating a ball on applet.
+		graphics.setColor(Color.white);
+		// subtracted 10 from x and y because x and y represents the top left corner but we want x and y 
+		// to represent at the center of the circle so subtracting 10 because 20 is the diameter of the circle.
+		graphics.fillOval((int)x-10, (int)y-10, 20, 20);
+	}
+	
+	public void checkBallHittingPaddle(PaddleOne p1, PCPaddle p2)
+	{
+		// check if ball hit right paddle
+		if(x <= 50)
+		{
+			//check if ball hitting the circumference of the paddle
+			if(y >= p1.getY() && y <= p1.getY()+80)
+			{
+				xVel = -xVel;
+				paddleOnePoints++;
+			}
+		}
+		// check if ball hit left paddle
+		else if(x >= 650)
+		{
+			//check if ball hitting the circumference of the paddle
+			if(y >= p2.getY() && y <= p2.getY()+80)
+			{
+				xVel = -xVel;
+				paddleTwoPoints++;
+			}
+			
+		}
+	}
+	
+	public void checkBallHittingPaddle(PaddleOne p1, PaddleTwo p2)
+	{
+		// check if ball hit right paddle
+		if(x <= 50)
+		{
+			//check if ball hitting the circumference of the paddle
+			if(y >= p1.getY() && y <= p1.getY()+80)
+			{
+				xVel = -xVel;
+				paddleOnePoints++;
+			}
+		}
+		// check if ball hit left paddle
+		else if(x >= 650)
+		{
+			//check if ball hitting the circumference of the paddle
+			if(y >= p2.getY() && y <= p2.getY()+80)
+			{
+				xVel = -xVel;
+				paddleTwoPoints++;
+			}
+			
+		}
+	}
+	
+	public void move()
+	{
+		x += xVel;
+		y += yVel;
+		// Not allow ball to go off the screen(applet).
+		// comparing with 10 and 490 because radius of circle is 10.
+		if(y < 10)
+		{
+			yVel = -yVel;
+		}
+		if(y > 490)
+		{
+			yVel = -yVel;
+		}
+	}
+	
+	public int getX()
+	{
+		// returns int value of x position(coordinate) of ball
+		return (int)x;
+	}
+
+	public int getY()
+	{
+		// returns int value of y position(coordinate) of ball
+		return (int)y;
+	}
+}

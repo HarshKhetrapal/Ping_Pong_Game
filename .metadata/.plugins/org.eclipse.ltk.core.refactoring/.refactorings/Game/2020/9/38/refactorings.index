@@ -1,0 +1,9 @@
+1600306762331	Rename type 'Testing'
+1600306866821	Rename field 'paddle1Testing'
+1600308399306	Rename type 'PaddleOne'
+1600308417872	Rename type 'PaddleTwo'
+1600308433841	Rename type 'PCPaddle'
+1600311085417	Rename field 'paddleOnePoints'
+1600311093215	Rename field 'paddleTwoPoints'
+1600456647129	Delete element
+1600466848643	Extract method 'initiForRerun'

@@ -1,0 +1,67 @@
+package PongGame;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class PCPaddle implements IPaddle
+{
+	final double GRAVITY = 0.94;
+	double y;
+	double yVel;
+	boolean upAccel;
+	boolean downAccel;
+	int player;
+	int x;
+	Ball ball;
+
+	public PCPaddle(int player, Ball ball)
+	{
+		upAccel = false;
+		downAccel = false;
+		y = 210; 
+		yVel = 0;
+		this.ball = ball;
+		if(player ==1)
+		{
+			// if player 1 then paddle will be on the left side.
+			x = 20;
+		}
+		else
+		{
+			// else for player 2 then paddle will be on the right side.
+			x = 660;
+		}
+	}
+	@Override
+	public void draw(Graphics graphics) 
+	{
+		// creating paddle with white color with size of 20*80
+		graphics.setColor(Color.white);
+		graphics.fillRect(x, (int)y, 20, 80);
+		
+		
+	}
+
+	@Override
+	public void move() {
+		// automatically moving the paddle based on the y position of ball and allowing to
+		// hit the ball at the center of the paddle.
+		y = ball.getY()-40;
+		if(y < 0)
+		{
+			// to not allow paddle to move out of screen while moving towards upward direction.
+			y = 0;
+		}
+		else if(y > 420)
+		{
+			// to not allow paddle to move out of screen while moving towards downwards direction.
+			y = 420; 
+		}
+	}
+
+	@Override
+	public int getY() {
+		return (int)y;
+	}
+	
+}

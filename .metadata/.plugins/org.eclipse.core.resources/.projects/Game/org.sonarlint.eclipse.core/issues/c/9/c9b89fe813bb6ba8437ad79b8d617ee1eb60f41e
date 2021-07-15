@@ -1,0 +1,8 @@
+
+ssquid:S1118	":Add a private constructor to hide the implicit public one.(€‚ñÖøÿÿÿÿ8ÊØª™Ì.HîRMAJORZ
+CODE_SMELL
+usquid:S1075"ARefactor your code to get this URI from a customizable parameter.(Ş–ï¹8âğæ”Í.HÌRMINORZ
+CODE_SMELL
+squid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‚Ø±ÎùÿÿÿÿHßRMINORZ
+CODE_SMELL
+_squid:S1148$"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ8¢ùº™Ì.HµRMINORZVULNERABILITY
